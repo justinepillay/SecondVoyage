@@ -1,0 +1,128 @@
+﻿<Window x:Class="SecondVoyage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SecondVoyage"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    
+    
+    
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.25*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+
+
+        <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"  Name="lblName" Content="Vrooms R Us" FontSize="20" FontFamily="Century Gothic"></Label>
+
+        <Button Grid.Row="2" Grid.Column="0" Name="btnAdd" Background="#80cfd4" Margin="10,0,20,0"
+                VerticalAlignment="center" Foreground="white" Height="40" Width="100" BorderThickness="1.5" Content="ADD"
+                BorderBrush="White" FontSize="14" FontFamily="Century Gothic" Click="btnAdd_Click_1">
+
+            <Button.Resources>
+                <Style TargetType="Border">
+
+                    <Setter Property="CornerRadius" Value="15"/>
+
+                </Style>
+                
+            </Button.Resources>
+            
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="1" Name="btnSale" Background="#80cfd4" Margin="10,0,20,0"
+                VerticalAlignment="center" Foreground="white" Height="40" Width="100" BorderThickness="1.5" Content="SELL"
+                BorderBrush="White" FontSize="14" FontFamily="Century Gothic" Click="btnSale_Click">
+
+            <Button.Resources>
+                <Style TargetType="Border">
+
+                    <Setter Property="CornerRadius" Value="15"/>
+
+                </Style>
+
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="2" Name="btnReport" Background="#80cfd4" Margin="10,0,20,0"
+                VerticalAlignment="center" Foreground="white" Height="40" Width="100" BorderThickness="1.5" Content="REPORT"
+                BorderBrush="White" FontSize="14" FontFamily="Century Gothic" Click="btnReport_Click">
+
+            <Button.Resources>
+                <Style TargetType="Border">
+
+                    <Setter Property="CornerRadius" Value="15"/>
+
+                </Style>
+
+            </Button.Resources>
+        </Button>
+
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="50" Text="Make:  " VerticalAlignment="Center" FontSize="14" FontFamily="Century Gothic" Margin="10,0,0.2,0" Height="30"></TextBlock>
+                <TextBox x:Name="txfMake" Height="21" Margin="0,2,97.4,10" Width="203" ></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="50" Text="Model: " VerticalAlignment="Center" FontSize="14" FontFamily="Century Gothic" Margin="10,0,0.2,0" Height="30"></TextBlock>
+                <TextBox x:Name="txfModel" Height="21" Margin="0,2,97.4,10" Width="203" ></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="50" Text="Price:   " VerticalAlignment="Center" FontSize="14" FontFamily="Century Gothic" Margin="10,0,0.2,0" Height="30"></TextBlock>
+                <TextBox x:Name="txfPrice" Height="21" Margin="0,2,97.4,10" Width="203" ></TextBox>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock Width="50" Text="Colour:" VerticalAlignment="Center" FontSize="14" FontFamily="Century Gothic" Margin="10,0,0.2,0" Height="30"></TextBlock>
+                <TextBox x:Name="txfColor" Height="21" Margin="0,2,97.4,10" Width="203" ></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="50" Text="Qty:      " VerticalAlignment="Center" FontSize="14" FontFamily="Century Gothic" Margin="10,0,0.2,0" Height="30"></TextBlock>
+                <TextBox x:Name="txfQty" Height="21" Margin="0,2,97.4,10" Width="203" ></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" VerticalAlignment="center">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+                <ComboBox Width="203" Name="cmbVrooms" Margin="0,0,0,20" SelectionChanged="cmbVrooms_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0},{1},{2}">
+                                        <Binding Path="make" />
+                                        <Binding Path="model"/>
+                                        <Binding Path="color"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+
+                <TextBlock  Name="txbDetails" Text="Full Details:  " VerticalAlignment="Center" FontSize="14" FontFamily="Century Gothic" Margin="10,0,0.2,0" ></TextBlock>
+            </StackPanel>
+           
+           
+        </StackPanel>
+
+
+    </Grid>
+</Window>
